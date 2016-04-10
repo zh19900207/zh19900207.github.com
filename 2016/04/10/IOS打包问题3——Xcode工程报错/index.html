@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>青春代码</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青春代码">
+<meta property="og:url" content="http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/index.html">
+<meta property="og:site_name" content="青春代码">
+<meta property="og:description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+<meta property="og:updated_time" content="2016-04-10T05:37:17.280Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="青春代码">
+<meta name="twitter:description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+  
+    <link rel="alternative" href="/atom.xml" title="青春代码" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/touxiang.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/touxiang.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">青春代码</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/zh19900207@163.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="#" title="QQ"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">青春代码</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/touxiang.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">青春代码</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/zh19900207@163.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="#" title="QQ"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-IOS打包问题3——Xcode工程报错" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/10/IOS打包问题3——Xcode工程报错/" class="article-date">
+      <time datetime="2016-04-10T05:16:14.371Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Xcode工程在编译时遇到的错误总结"><a href="#Xcode工程在编译时遇到的错误总结" class="headerlink" title="Xcode工程在编译时遇到的错误总结"></a>Xcode工程在编译时遇到的错误总结</h1><p>上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。<br>详情请看<a href="">Unity3d导出Xcode工程问题总结</a><br>这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。<br><a id="more"></a></p>
+<h2 id="Unknown-type-name-‘-declspec’"><a href="#Unknown-type-name-‘-declspec’" class="headerlink" title="Unknown type name ‘__declspec’"></a>Unknown type name ‘__declspec’</h2><ul>
+<li>问题描述<br>Unknown type name ‘__declspec’</li>
+<li>原因分析<br>不知道啥原因。可以认为是Unity的bug。<br>Unity5.2.4使用修改unity源文件的方法不能生效，最后升级Unity版本到5.3.4即解决。</li>
+<li>参考文档<ul>
+<li>修改Unity源文件解决方法，无效。<a href="http://stackoverflow.com/questions/35192700/how-to-get-rid-of-unknown-type-name-declspec-error-in-xcode/36222247" target="_blank" rel="external">How to get rid of “Unknown type name ‘__declspec’” error in Xcode</a></li>
+<li>其中修改源文件的解决方案，也无效.<a href="http://forum.unity3d.com/threads/error-unknown-type-name-__declspec-after-xcode-7-3-upgrade.393128/" target="_blank" rel="external">Error “unknown type name __declspec” after Xcode 7.3 upgrade</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="“-kSecReturnData”"><a href="#“-kSecReturnData”" class="headerlink" title="“_kSecReturnData”"></a>“_kSecReturnData”</h2><ul>
+<li><p>问题描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;_kSecReturnData&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain load:] in libTalkingDataGA.a(TDKeychain.o)</span><br><span class="line">  &quot;_kSecMatchLimitOne&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain load:] in libTalkingDataGA.a(TDKeychain.o)</span><br><span class="line">  &quot;_kSecMatchLimit&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain load:] in libTalkingDataGA.a(TDKeychain.o)</span><br><span class="line">  &quot;_SecCertificateCopyData&quot;, referenced from:</span><br><span class="line">      -[TDGAHttpRequest stream:handleEvent:] in libTalkingDataGA.a(TDHttpRequest.o)</span><br><span class="line">  &quot;_SecItemCopyMatching&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain load:] in libTalkingDataGA.a(TDKeychain.o)</span><br><span class="line">  &quot;_kSecClass&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain getKeychainQuery:] in libTalkingDataGA.a(TDKeychain.o)</span><br><span class="line">  &quot;_deflateInit2_&quot;, referenced from:</span><br><span class="line">      +[TDGAUtility dataByGZipCompressing:] in libTalkingDataGA.a(TDUtility.o)</span><br><span class="line">      +[TDGAUtility dataByZlibCompressing:] in libTalkingDataGA.a(TDUtility.o)</span><br><span class="line">     (maybe you meant: _unity_z_deflateInit2_, _il2cpp_z_deflateInit2_ )</span><br><span class="line">  &quot;_kSecValueData&quot;, referenced from:</span><br><span class="line">      +[TDGAKeyChain save:data:] in libTalkingDataGA.a(TDKeychain.o)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br>TalkingData相关，TalkingData需要<font color="Brown"><strong>“Security.framework”</strong></font> 。</p>
+</li>
+<li>参考文档<ul>
+<li><a href="http://stackoverflow.com/questions/1554954/how-do-i-use-apple-keychain" target="_blank" rel="external">How do I use Apple Keychain?</a></li>
+<li><a href="http://blog.csdn.net/iukey/article/details/7666469" target="_blank" rel="external">iOS框架介绍（六）—Core OS 层</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="“-deflate”"><a href="#“-deflate”" class="headerlink" title="“_deflate”"></a>“_deflate”</h2><ul>
+<li><p>问题描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;_deflate&quot;, referenced from:</span><br><span class="line">      +[TDGAUtility dataByGZipCompressing:] in libTalkingDataGA.a(TDUtility.o)</span><br><span class="line">      +[TDGAUtility dataByZlibCompressing:] in libTalkingDataGA.a(TDUtility.o)</span><br><span class="line">     (maybe you meant: _unity_z_deflate_copyright, _unity_z_deflateCopy , _unity_z_deflateParams ,</span><br><span class="line"> _unity_z_deflatePrime , _unity_z_deflateSetDictionary , _unity_z_deflateInit_ , _unity_z_deflateInit2_ , </span><br><span class="line">_unity_z_deflateReset , _unity_z_deflateTune , _il2cpp_z_deflate_copyright , _il2cpp_z_deflateTune ,</span><br><span class="line"> _il2cpp_z_deflateParams , _il2cpp_z_deflatePrime , _il2cpp_z_deflateSetHeader , _il2cpp_z_deflate ,</span><br><span class="line"> _il2cpp_z_deflateCopy , _unity_z_deflateEnd , _il2cpp_z_deflateBound , _il2cpp_z_deflateInit2_ ,</span><br><span class="line"> _il2cpp_z_deflateEnd , _unity_z_deflate , _unity_z_deflateSetHeader , _il2cpp_z_deflateSetDictionary ,</span><br><span class="line"> _il2cpp_z_deflateReset , _unity_z_deflateBound , _il2cpp_z_deflateInit_ )</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br>TalkingData相关，TalkingData需要对数据进行压缩，可能是想TalkingData的服务器传输相关游戏数据。<br>所以在Build Setting 的 Other Linker Flags 中添加<font color="Brown"><strong>“-lz”</strong></font>。<br>但是，没有选择这种方式，因为设置 Other Linker Flags 之后依然会报以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;_get_crc_table&quot;, referenced from:</span><br><span class="line"> _TDGAunzOpenCurrentFile3 in libTalkingDataGA.a(unzip.o)</span><br><span class="line">(maybe you meant: _il2cpp_z_get_crc_table, _unity_z_get_crc_table )</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所以最终的解决方案是添加libz.tbd框架，如果这个框架不行，试一下libz.1.2.5.tbd框架。</p>
+<ul>
+<li>参考文档<ul>
+<li><a href="http://stackoverflow.com/questions/289274/error-when-import-zlib-in-iphone-sdk" target="_blank" rel="external">error when import zlib in iphone sdk</a></li>
+<li><a href="http://www.cocoachina.com/bbs/read.php?tid=189069" target="_blank" rel="external">添加框架解决办法</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="“-OBJCCLASS-ASIdentifierManager”"><a href="#“-OBJCCLASS-ASIdentifierManager”" class="headerlink" title="“_OBJCCLASS$_ASIdentifierManager”"></a>“_OBJC<em>CLASS</em>$_ASIdentifierManager”</h2><ul>
+<li><p>问题描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;_OBJC_CLASS_$_ASIdentifierManager&quot;, referenced from:</span><br><span class="line">      objc-class-ref in libTalkingDataGA.a(TDUtility.o)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br>TalkingData需要广告服务,所以需要广告服务框架的支持。</p>
+</li>
+<li>参考文档<ul>
+<li><a href="http://ubluesky.com/archives/362" target="_blank" rel="external">_OBJC<em>CLASS</em>$_ASIdentifierManager 错误</a></li>
+<li><a href="http://www.cocoachina.com/bbs/read.php?tid=187872" target="_blank" rel="external">AppStore审核被驳回 PLA 3.3.12</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="“-OBJC-CLASS-CTTelephonyNetworkInfo”"><a href="#“-OBJC-CLASS-CTTelephonyNetworkInfo”" class="headerlink" title="“_OBJC_CLASS_$_CTTelephonyNetworkInfo”"></a>“_OBJC_CLASS_$_CTTelephonyNetworkInfo”</h2><ul>
+<li><p>问题描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;_OBJC_CLASS_$_CTTelephonyNetworkInfo&quot;, referenced from:</span><br><span class="line">      objc-class-ref in libTalkingDataGA.a(TDUtility.o)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br>TalkingData需要获取当前iOS设备的网络状态，所以需要获取手机信息的框架。</p>
+</li>
+<li>参考文档<ul>
+<li><a href="http://tieba.baidu.com/p/4043651808" target="_blank" rel="external">各位大神，_OBJC<em>CLASS</em>$_CTTelephonyNetworkInfo这是</a></li>
+<li><a href="http://blog.163.com/china_uv/blog/static/11713726720126725415858/" target="_blank" rel="external">Core Telephony Framework</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/10/IOS打包问题3——Xcode工程报错/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 青春代码 的个人博客">青春代码</a></p>
+        <p><span>发布时间:</span>2016年04月10日 - 13时16分</p>
+        <p><span>最后更新:</span>2016年04月10日 - 13时37分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/10/IOS打包问题3——Xcode工程报错/" title="">http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/　　作者: 青春代码" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/">
+                    
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Xcode工程在编译时遇到的错误总结"><span class="toc-number">1.</span> <span class="toc-text">Xcode工程在编译时遇到的错误总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unknown-type-name-‘-declspec’"><span class="toc-number">1.1.</span> <span class="toc-text">Unknown type name ‘__declspec’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-kSecReturnData”"><span class="toc-number">1.2.</span> <span class="toc-text">“_kSecReturnData”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-deflate”"><span class="toc-number">1.3.</span> <span class="toc-text">“_deflate”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJCCLASS-ASIdentifierManager”"><span class="toc-number">1.4.</span> <span class="toc-text">“_OBJCCLASS$_ASIdentifierManager”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJC-CLASS-CTTelephonyNetworkInfo”"><span class="toc-number">1.5.</span> <span class="toc-text">“_OBJC_CLASS_$_CTTelephonyNetworkInfo”</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/04/10/IOS打包问题3——Xcode工程报错/" data-title="" data-url="http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/">IOS打包问题2——unity编译Xcode工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题3——Xcode工程报错/">IOS打包问题3——Xcode工程报错</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 青春代码
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

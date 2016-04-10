@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>青春代码</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Unity3d导出Xcode工程问题总结文章主要总结了在Unity3d生成Xcode工程的过程中遇到的问题，希望对遇到问题的小伙伴有帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青春代码">
+<meta property="og:url" content="http://zh19900207.github.io/2016/04/10/IOS打包问题2——unity编译Xcode工程/index.html">
+<meta property="og:site_name" content="青春代码">
+<meta property="og:description" content="Unity3d导出Xcode工程问题总结文章主要总结了在Unity3d生成Xcode工程的过程中遇到的问题，希望对遇到问题的小伙伴有帮助。">
+<meta property="og:updated_time" content="2016-04-10T05:33:46.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="青春代码">
+<meta name="twitter:description" content="Unity3d导出Xcode工程问题总结文章主要总结了在Unity3d生成Xcode工程的过程中遇到的问题，希望对遇到问题的小伙伴有帮助。">
+  
+    <link rel="alternative" href="/atom.xml" title="青春代码" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/touxiang.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/touxiang.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">青春代码</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/zh19900207@163.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="#" title="QQ"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">青春代码</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/touxiang.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">青春代码</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/zh19900207@163.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="#" title="QQ"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-IOS打包问题2——unity编译Xcode工程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/" class="article-date">
+      <time datetime="2016-04-10T05:16:14.437Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Unity3d导出Xcode工程问题总结"><a href="#Unity3d导出Xcode工程问题总结" class="headerlink" title="Unity3d导出Xcode工程问题总结"></a>Unity3d导出Xcode工程问题总结</h1><p>文章主要总结了在Unity3d生成Xcode工程的过程中遇到的问题，希望对遇到问题的小伙伴有帮助。<br><a id="more"></a></p>
+<h2 id="Failed-to-load-package-manager"><a href="#Failed-to-load-package-manager" class="headerlink" title="Failed to load package manager"></a>Failed to load package manager</h2><ul>
+<li>错误描述<br>Failed to load package manager<br>UnityEditor.HostView:OnGUI()</li>
+<li>原因分析<br>主要是Unity破解的时候，license使用的不正确。<br>例如，下载的Unity版本是5.2.4，但是使用了5.2.3的license。如果在电脑上使用没有问题。但是当打包的时候就会出错。</li>
+<li>参考文档<br><a href="http://answers.unity3d.com/questions/939559/failed-to-load-package-manager-error.html" target="_blank" rel="external">Failed to load package manager</a></li>
+</ul>
+<h2 id="DXT3-compressed-textures-are-not-supported-when-publishing-to-iPhone"><a href="#DXT3-compressed-textures-are-not-supported-when-publishing-to-iPhone" class="headerlink" title="DXT3 compressed textures are not supported when publishing to iPhone"></a>DXT3 compressed textures are not supported when publishing to iPhone</h2><ul>
+<li>错误描述<br>DXT3 compressed textures are not supported when publishing to iPhone<br>Assets/SceneLevel/Model/xuedi/Materials/xd_toushiche.dds<br>Included from scene:<br>UnityEditor.HostView:OnGUI()</li>
+<li>原因分析<br>主要是由于Iphone不支持DDS造成的。</li>
+<li>参考文档<ul>
+<li>首先要明白什么是DDS——<a href="http://baike.baidu.com/link?url=avwCP-uvmnuRMh0_mhGLM9o7xoMcSzB-31fq8skoOtdsgSPIAiyzfaKIvlEFQPmBJTpP9iwbj8U-3uyy-L4mo_" target="_blank" rel="external">DDS百度百科</a></li>
+<li>另外可以使用转码工具来对DDS格式的贴图进行转码——<a href="http://cn.office-converter.com/DDS-to-TGA" target="_blank" rel="external">转码网站</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="xlv-TEXCOORD2’-redeclared"><a href="#xlv-TEXCOORD2’-redeclared" class="headerlink" title="`xlv_TEXCOORD2’ redeclared"></a>`xlv_TEXCOORD2’ redeclared</h2><ul>
+<li>错误描述<br>Shader error in ‘Particles/Additive(clipping)’: `xlv_TEXCOORD2’ redeclared at line 80 (on metal)</li>
+<li>原因分析<br>在shader中进行了重复定义。<br>出现此问题的shader为 <font color="Brown"><strong>Particle Add Clipping.shader</strong></font><br>主要问题在于以下代码<pre><code>#ifdef SOFTPARTICLES_ON
+float4 projPos : TEXCOORD2;
+#endif
+//------------------add---------------------------------
+float3 vpos:TEXCOORD2;
+//------------------add---------------------------------
+</code></pre>主要由于在IOS设备上，支持 <font color="Brown"><strong>SOFTPARTICLES_ON</strong></font>，所以导致了重复定义。</li>
+</ul>
+<h2 id="System-Web-Extensions-dll-could-not-be-loaded"><a href="#System-Web-Extensions-dll-could-not-be-loaded" class="headerlink" title="System.Web.Extensions.dll could not be loaded"></a>System.Web.Extensions.dll could not be loaded</h2><ul>
+<li><p>错误描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Failed running /Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper2/UnusedBytecodeStripper2.exe -out</span><br><span class="line">Unhandled Exception: System.Reflection.ReflectionTypeLoadException: The classes in the module cannot be loaded.</span><br><span class="line">at (wrapper managed-to-native) System.Reflection.Assembly:GetTypes (bool)</span><br><span class="line">at System.Reflection.Assembly.GetTypes () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.RootNamespace.ComputeNamespaces (System.Reflection.Assembly assembly, System.Type extensionType) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.RootNamespace.ComputeNamespace (Mono.CSharp.CompilerContext ctx, System.Type extensionType) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.GlobalRootNamespace.ComputeNamespaces (Mono.CSharp.CompilerContext ctx) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.Driver.LoadReferences () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.Driver.Compile () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.CSharp.Driver.Main (System.String[] args) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">The following assembly referenced from /Users/r1/Documents/client/Assets/Plugins/System.Web.Extensions.dll could not be loaded:</span><br><span class="line">Assembly:   System.Web(assemblyref_index=2)</span><br><span class="line">Version:2.0.0.0</span><br><span class="line">Public Key: b03f5f7f11d50a3a</span><br><span class="line">The assembly was not found in the Global Assembly Cache, a path listed in the MONO_PATH environment variable, or in the location of the executing assembly (/Users/r1/Documents/client/Assets/Plugins/).</span><br><span class="line">Could not load file or assembly &apos;System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&apos; or one of its dependencies.</span><br><span class="line">Missing method .ctor in assembly /Users/r1/Documents/client/Assets/Plugins/System.Web.Extensions.dll, type System.Web.UI.WebResourceAttribute</span><br><span class="line">Can&apos;t find custom attr constructor image: /Users/r1/Documents/client/Assets/Plugins/System.Web.Extensions.dll mtoken: 0x0a000011</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br><font color="Brown"><strong>The following assembly referenced from /Users/r1/Documents/client/Assets/Plugins/System.Web.Extensions.dll</strong></font><br>报错原因是在plugin中有个dll被应用，但是目前不支持web。<br>当在编辑器中转换平台之后，就不会报这个错误了。<br>也就是并不需要必须将这个<font color="Brown"><strong>System.Web.Extensions.dll</strong></font> 删除</p>
+</li>
+</ul>
+<h2 id="Mono-Cecil-ResolutionException-Failed-to-resolve-System-Web-AspNetHostingPermissionLevel"><a href="#Mono-Cecil-ResolutionException-Failed-to-resolve-System-Web-AspNetHostingPermissionLevel" class="headerlink" title="Mono.Cecil.ResolutionException: Failed to resolve System.Web.AspNetHostingPermissionLevel"></a>Mono.Cecil.ResolutionException: Failed to resolve System.Web.AspNetHostingPermissionLevel</h2><ul>
+<li>错误描述<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Failed running /Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper2/UnusedBytecodeStripper2.exe</span><br><span class="line"> -out &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/tempStrip&quot;</span><br><span class="line"> -l none -c link</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/native_link.xml&quot;</span><br><span class="line"> -f &quot;/Applications/Unity/Unity.app/Contents/Frameworks/il2cpp/LinkerDescriptors&quot;</span><br><span class="line"> -x &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/../platform_native_link.xml&quot;</span><br><span class="line"> -x &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/methods_pointedto_by_uievents.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/Animation.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/Audio.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/IMGUI.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/Physics.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/Physics2D.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/TextRendering.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/UI.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStrippernk.xml&quot;</span><br><span class="line"> -x &quot;/Applications/Unity/Unity.app/Contents/Frameworks/Tools/UnusedByteCodeStripper/native_link.xml&quot;</span><br><span class="line"> -x &quot;/Users/r1/Documents/client/Assets/Scripts/AStarScriptnk.xml&quot;</span><br><span class="line"> -d &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed&quot;</span><br><span class="line"> -a  &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/Assembly-CSharp-firstpass.dll&quot;</span><br><span class="line"> -a  &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll&quot;</span><br><span class="line"> -a  &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/Assembly-UnityScript-firstpass.dll&quot;</span><br><span class="line"> -a  &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/Assembly-UnityScript.dll&quot;</span><br><span class="line"> -a  &quot;/Users/r1/Documents/client/Temp/StagingArea/Data/Managed/UnityEngine.UI.dll&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">stdout:</span><br><span class="line">SweepReport:</span><br><span class="line">System.MonoType =&gt; Mono.Cecil.TypeDefinitionMono.Cecil.TypeDefinitionMono.Cecil.TypeDefinitionMono.Cecil.TypeDefinitionMono.Cecil.TypeDefinition</span><br><span class="line">Mono.Cecil.MethodDefinition =&gt; System.Boolean System.EnterpriseServices.IConfigurationAttribute.AfterSaveChanges(System.Collections.Hashtable)System.Boolean System.EnterpriseServices.IConfigurationAttribute.Apply(System.Collections.Hashtable)System.Boolean System.EnterpriseServices.IConfigurationAttribute.IsValidTarget(System.String)System.Guid get_Value()System.Boolean System.EnterpriseServices.IConfigurationAttribute.AfterSaveChanges(System.Collections.Hashtable)</span><br><span class="line">Mono.Cecil.FieldDefinition =&gt; System.String LiteralFalseSystem.String LiteralTrueSystem.String LiteralNullSystem.String LiteralUndefinedSystem.String LiteralNotANumber</span><br><span class="line">Fatal error in Mono CIL Linker</span><br><span class="line">Mono.Cecil.ResolutionException: Failed to resolve System.Web.AspNetHostingPermissionLevel</span><br><span class="line">  at Mono.Cecil.Mixin.CheckedResolve (Mono.Cecil.TypeReference self) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeEnum (Mono.Cecil.TypeReference enum_type) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeElementValue (Mono.Cecil.TypeReference type) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeElement (Mono.Cecil.TypeReference type) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeFixedArgument (Mono.Cecil.TypeReference type) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeNamedArgument (Mono.Collections.Generic.Collection`1&amp; fields, Mono.Collections.Generic.Collection`1&amp; properties) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadCustomAttributeNamedArguments (UInt16 count, Mono.Collections.Generic.Collection`1&amp; fields, Mono.Collections.Generic.Collection`1&amp; properties) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SignatureReader.ReadSecurityAttribute () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">at Mono.Cecil.MetadataReader.ReadSecurityDeclarationSignature (Mono.Cecil.SecurityDeclaration declaration) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SecurityDeclaration.&lt;Resolve&gt;b__2 (Mono.Cecil.SecurityDeclaration declaration, Mono.Cecil.MetadataReader reader) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ModuleDefinition.Read[SecurityDeclaration,SecurityDeclaration] (Mono.Cecil.SecurityDeclaration item, System.Func`3 read) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SecurityDeclaration.Resolve () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.SecurityDeclaration.get_SecurityAttributes () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ImmediateModuleReader.ReadSecurityDeclarations (ISecurityDeclarationProvider provider) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ImmediateModuleReader.ReadType (Mono.Cecil.TypeDefinition type) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ImmediateModuleReader.ReadTypes (Mono.Collections.Generic.Collection`1 types) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ImmediateModuleReader.ReadModule (Mono.Cecil.ModuleDefinition module) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ModuleWriter.WriteModuleTo (Mono.Cecil.ModuleDefinition module, System.IO.Stream stream, Mono.Cecil.WriterParameters parameters) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ModuleDefinition.Write (System.IO.Stream stream, Mono.Cecil.WriterParameters parameters) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.ModuleDefinition.Write (System.String fileName, Mono.Cecil.WriterParameters parameters) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Cecil.AssemblyDefinition.Write (System.String fileName, Mono.Cecil.WriterParameters parameters) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Steps.OutputStep.OutputAssembly (Mono.Cecil.AssemblyDefinition assembly) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Steps.OutputStep.ProcessAssembly (Mono.Cecil.AssemblyDefinition assembly) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Steps.BaseStep.Process (Mono.Linker.LinkContext context) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Pipeline.Process (Mono.Linker.LinkContext context) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Driver.Run () [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Driver.RunDriverWithErrorHandling (Mono.Linker.Driver driver) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">  at Mono.Linker.Driver.RunDriver (Mono.Linker.Driver driver) [0x00000] in &lt;filename unknown&gt;:0 </span><br><span class="line">stderr:</span><br><span class="line"></span><br><span class="line">UnityEngine.Debug:LogError(Object)</span><br><span class="line">UnityEditorInternal.Runner:RunManagedProgram(String, String, String, CompilerOutputParserBase) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:68)</span><br><span class="line">UnityEditorInternal.AssemblyStripper:RunAssemblyLinker(IEnumerable`1, String&amp;, String&amp;, String, String) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:199)</span><br><span class="line">UnityEditorInternal.AssemblyStripper:StripAssembliesTo(String, String, String&amp;, String&amp;, String, String, IEnumerable`1) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:192)</span><br><span class="line">UnityEditorInternal.AssemblyStripper:Strip(String, String, String&amp;, String&amp;, String, String, IEnumerable`1) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:143)</span><br><span class="line">UnityEditorInternal.AssemblyStripper:Strip(String[], String[], String, String, String&amp;, String&amp;, String, String, IEnumerable`1) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:123)</span><br><span class="line">UnityEditorInternal.IL2CPPBuilder:RunAssemblyStripper(IEnumerable, String, String[], String[], String) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:465)</span><br><span class="line">UnityEditorInternal.IL2CPPBuilder:StripAssemblies(IEnumerable`1, String) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:438)</span><br><span class="line">UnityEditorInternal.IL2CPPBuilder:Run() (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:299)</span><br><span class="line">UnityEditorInternal.IL2CPPUtils:RunIl2Cpp(String, String, IIl2CppPlatformProvider, Action`1, RuntimeClassRegistry) (at /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/Il2Cpp/IL2CPPUtils.cs:218)</span><br><span class="line">UnityEditor.PostprocessBuildPlayer:Postprocess(BuildTarget, String, String, String, Int32, Int32, String, String, BuildOptions, RuntimeClassRegistry)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>原因分析</p>
+<ul>
+<li>主要问题在于<font color="Brown"><strong>“Mono.Cecil.ResolutionException: Failed to resolve System.Web.AspNetHostingPermissionLevel”</strong></font><br>这个问题在于，程序中需要用到<font color="Brown"><strong>“System.Web.AspNetHostingPermissionLevel”</strong></font> 这个类，但是当前的Spripting Backend 与 Stripping Level 决定了这个类会被剥离。<br>那我们要做的就是要对其进行保护，在编译成C++的时候，不对他进行剥离操作。<br>所以在我们link.xml中设置对其进行保护。</li>
+<li>为什么IOS要这么设置呢？<br>在android平台下，Spripting Backend设置为<strong>Mono2x</strong>，Stripping Level设置为<strong>Disable</strong>，Api Compatiblity Level设置为<strong>.NET 2.0</strong>。也就是说android平台下使用了整个.NET2.0框架中的类，并且没有做任何剥离操作。<br>但是在ios平台下，Spripting Backend设置为<strong>IL2CPP</strong>，这种编译形式相当于Stripping Level设置为<strong>Strip Byte Code</strong>。这种剥离等级下，就会将<font color="Brown"><strong>“System.Web.AspNetHostingPermissionLevel”</strong></font>进行剥离，所以我们要在link.xml中对其进行保护。</li>
+</ul>
+</li>
+<li><p>参考文档</p>
+<ul>
+<li>开始怀疑是dll出现问题，参考 <a href="http://tieba.baidu.com/p/4077300034" target="_blank" rel="external">删除对应dll来解决</a>。<br>但是经过测试dll没有问题，所以此中解决办法搁置。</li>
+<li>这个涉及到IL2CPP的概念。参考 <a href="http://zhuanlan.zhihu.com/p/19972689" target="_blank" rel="external">什么是IL2CPP</a></li>
+<li>怎么理解剥离力度。参考 <a href="http://www.cnblogs.com/88999660/archive/2013/03/15/2961663.html" target="_blank" rel="external">Unity3D占用内存太大的解决方法</a></li>
+<li>怎么理解link.xml <a href="http://www.tuicool.com/articles/InMnaeb" target="_blank" rel="external">什么是link.xml</a></li>
+<li>参考 <a href="http://forum.unity3d.com/threads/please-help-for-il2cpp-problem.302670/" target="_blank" rel="external">Please help for IL2CPP problem</a></li>
+<li>参考 <a href="http://docs.unity3d.com/Manual/iphone-playerSizeOptimization.html" target="_blank" rel="external">官方文档</a></li>
+<li>NET2.0与NET2.0 sub <a href="http://docs.unity3d.com/410/Documentation/ScriptReference/MonoCompatibility.html" target="_blank" rel="external">Mono Compatibility</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="IOS贴图解决"><a href="#IOS贴图解决" class="headerlink" title="IOS贴图解决"></a>IOS贴图解决</h2><ul>
+<li>问题描述<br>打包iOS之后，多个图集中的图片错位，显示模糊。</li>
+<li>原因分析<br><strong>说明一：</strong><br>首先IOS压缩的方式为 <font color="Brown"><strong>RGBA Compressed PVRET 4 bits</strong></font>。但是前提要求是压缩的图集的宽高比是1，也就是为正方形。<br>“纹理在导入时将被缩放到最近的幂大小。例如257x511纹理将成为256x512。请注意，PVRTC格式要求纹理是正方形（宽度与高度相等），因此最终大小将变换到512x512。 PVRTC是一种有损的纹理压缩技术，主要用于iPhone，iPod touch和iPad。”<br>所以如果要使用PVRET压缩方式的话，只能将图集打成正方形的。<br>在iOS平台下，默认的压缩格式也是这个格式。<br><strong>说明二：</strong><br>当使用 <font color="Brown"><strong>RGBA Compressed PVRET 4 bits</strong></font> 压缩方式的话，会发现图片失真。<br>最优的解决方案是出将一张图拆分为两张图，一张只带有RGB信息，一张带有alpha通道信息。<br>因为带有alpha通道的这张图包含的信息较少，所以可以将这张图进行压缩。这样既能够减少包体大小，也能够减少占用的内存。<br><strong>说明三</strong><br>现在android平台下用到的压缩格式为 <font color="Brown"><strong>RGBA Compressed ETC2 8 bits</strong></font>。<br>如果单纯带有纯透明的通道的图片，可以选择 <font color="Brown"><strong>RGB + 1-bit Alpha Compressed ETC2 4 bits</strong></font>。<br>这种压缩模式能够让图片的大小缩小一半。</li>
+<li>参考文档<ul>
+<li><a href="http://www.ceeger.com/Manual/Textures.html" target="_blank" rel="external">To nearest 到最近的</a></li>
+<li>所以最解决方案是：如果现在的图集是正方形的，则使用ios的格式进行压缩（默认已经用这种格式压缩）。<br>如果图集不是正方形的，则目前先不对其进行压缩处理。<br>一些非图集的Texture，则选择To nearest进行压缩。<a href="http://blog.csdn.net/gy373499700/article/details/38520531" target="_blank" rel="external">Only POT texture can be compressed to PVRTC format</a></li>
+<li><a href="http://blog.csdn.net/u010019717/article/details/46740671" target="_blank" rel="external">Sprite (2D and UI)</a></li>
+<li><a href="http://gad.qq.com/article/detail/72" target="_blank" rel="external">移动设备的纹理压缩方案</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="there-are-no-graphs-in-the-scene"><a href="#there-are-no-graphs-in-the-scene" class="headerlink" title="there are no graphs in the scene"></a>there are no graphs in the scene</h2><ul>
+<li><p>问题描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Caught exception while deserializing data.</span><br><span class="line">System.MissingMethodException: Method not found: &apos;Default constructor not found...ctor() of System.ComponentModel.UInt32Converter&apos;.</span><br><span class="line">at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x00000] in :0 </span><br><span class="line">at System.Activator.CreateInstance (System.Type type) [0x00000] in :0 </span><br><span class="line">at System.ComponentModel.TypeDescriptor.GetConverter (System.Type type) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.TypeCoercionUtility.CoerceType (System.Type targetType, System.Object value) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.JsonReader.ReadNumber (System.Type expectedType) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.JsonReader.Read (System.Type expectedType, Boolean typeIsHint) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.JsonReader.PopulateObject (System.Object&amp; result, System.Type objectType, System.Collections.Generic.Dictionary`2 memberMap, System.Type genericDictionaryType) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.JsonReader.PopulateObject (System.Object&amp; obj) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.JsonFx.JsonReader.PopulateObject[NavGraph] (Pathfinding.NavGraph&amp; obj) [0x00000] in :0 </span><br><span class="line">at Pathfinding.Serialization.AstarSerializer.DeserializeGraphs () [0x00000] in :0 </span><br><span class="line">at Pathfinding.AstarData.DeserializeGraphsPart (Pathfinding.Serialization.AstarSerializer sr) [0x00000] in :0 </span><br><span class="line">at Pathfinding.AstarData.DeserializeGraphs (System.Byte[] bytes) [0x00000] in :0</span><br><span class="line">(Filename: /Applications/buildAgent/work/aeedb04a1292f85a/artifacts/iPhonePlayer-armv7Generated/UnityEngineDebug.cpp Line: 49)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因分析<br><font color="Brown"><strong>“System.ComponentModel.UInt32Converter”</strong></font>在ios当前的编译方式与打包等级的情况下，被剥离了。所以也要在link.xml中对其进行保护</p>
+</li>
+<li>参考文档<ul>
+<li><a href="http://forum.arongranberg.com/t/there-are-no-graphs-in-the-scene-on-ios-without-disabling-stripping/1190" target="_blank" rel="external">“there are no graphs in the scene” on iOS without disabling stripping</a></li>
+<li><a href="http://arongranberg.com/astar/docs/iphone.php" target="_blank" rel="external">官方文档</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 青春代码 的个人博客">青春代码</a></p>
+        <p><span>发布时间:</span>2016年04月10日 - 13时16分</p>
+        <p><span>最后更新:</span>2016年04月10日 - 13时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/" title="">http://zh19900207.github.io/2016/04/10/IOS打包问题2——unity编译Xcode工程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zh19900207.github.io/2016/04/10/IOS打包问题2——unity编译Xcode工程/　　作者: 青春代码" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/10/IOS打包问题3——Xcode工程报错/">
+                    
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity3d导出Xcode工程问题总结"><span class="toc-number">1.</span> <span class="toc-text">Unity3d导出Xcode工程问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Failed-to-load-package-manager"><span class="toc-number">1.1.</span> <span class="toc-text">Failed to load package manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DXT3-compressed-textures-are-not-supported-when-publishing-to-iPhone"><span class="toc-number">1.2.</span> <span class="toc-text">DXT3 compressed textures are not supported when publishing to iPhone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xlv-TEXCOORD2’-redeclared"><span class="toc-number">1.3.</span> <span class="toc-text">`xlv_TEXCOORD2’ redeclared</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#System-Web-Extensions-dll-could-not-be-loaded"><span class="toc-number">1.4.</span> <span class="toc-text">System.Web.Extensions.dll could not be loaded</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mono-Cecil-ResolutionException-Failed-to-resolve-System-Web-AspNetHostingPermissionLevel"><span class="toc-number">1.5.</span> <span class="toc-text">Mono.Cecil.ResolutionException: Failed to resolve System.Web.AspNetHostingPermissionLevel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOS贴图解决"><span class="toc-number">1.6.</span> <span class="toc-text">IOS贴图解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#there-are-no-graphs-in-the-scene"><span class="toc-number">1.7.</span> <span class="toc-text">there are no graphs in the scene</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/04/10/IOS打包问题2——unity编译Xcode工程/" data-title="" data-url="http://zh19900207.github.io/2016/04/10/IOS打包问题2——unity编译Xcode工程/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/10/IOS打包问题3——Xcode工程报错/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/">IOS打包问题2——unity编译Xcode工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题3——Xcode工程报错/">IOS打包问题3——Xcode工程报错</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 青春代码
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
