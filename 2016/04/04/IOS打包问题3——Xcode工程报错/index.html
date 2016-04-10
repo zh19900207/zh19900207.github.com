@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>青春代码</title>
+  <title>Xcode工程在编译时遇到的错误总结 | 青春代码</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+  <meta name="description" content="上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="青春代码">
-<meta property="og:url" content="http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/index.html">
+<meta property="og:title" content="Xcode工程在编译时遇到的错误总结">
+<meta property="og:url" content="http://zh19900207.github.io/2016/04/04/IOS打包问题3——Xcode工程报错/index.html">
 <meta property="og:site_name" content="青春代码">
-<meta property="og:description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
-<meta property="og:updated_time" content="2016-04-10T05:37:17.280Z">
+<meta property="og:description" content="上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+<meta property="og:updated_time" content="2016-04-10T12:26:09.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="青春代码">
-<meta name="twitter:description" content="Xcode工程在编译时遇到的错误总结上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
+<meta name="twitter:title" content="Xcode工程在编译时遇到的错误总结">
+<meta name="twitter:description" content="上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。详情请看Unity3d导出Xcode工程问题总结这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。">
   
     <link rel="alternative" href="/atom.xml" title="青春代码" type="application/atom+xml">
   
@@ -54,6 +54,16 @@
   
 
   
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?[object Object]";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
 
   
     <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -73,6 +83,8 @@
           <h1 class="header-author"><a href="/">青春代码</a></h1>
         </hgroup>
 
+        
+        <p class="header-subtitle">life to learning, learn to life</p>
         
                 
 
@@ -153,7 +165,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/unity/" style="font-size: 10px;">unity</a> <a href="/tags/打包/" style="font-size: 10px;">打包</a>
                     </div>
                 </section>
                 
@@ -176,7 +188,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">一个做过android、iOS，现在却专注于Unity3d游戏开发的程序员</div>
                 </section>
                 
             </div>
@@ -198,6 +210,8 @@
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">青春代码</a></h1>
             </hgroup>
+            
+            <p class="header-subtitle">life to learning, learn to life</p>
             
             <nav class="header-menu">
                 <ul>
@@ -232,8 +246,8 @@
       <div class="body-wrap"><article id="post-IOS打包问题3——Xcode工程报错" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/10/IOS打包问题3——Xcode工程报错/" class="article-date">
-      <time datetime="2016-04-10T05:16:14.371Z" itemprop="datePublished">2016-04-10</time>
+      <a href="/2016/04/04/IOS打包问题3——Xcode工程报错/" class="article-date">
+      <time datetime="2016-04-03T16:12:23.000Z" itemprop="datePublished">2016-04-04</time>
 </a>
     </div>
   
@@ -242,10 +256,36 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Xcode工程在编译时遇到的错误总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/打包/">打包</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/打包/">打包</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Xcode工程在编译时遇到的错误总结"><a href="#Xcode工程在编译时遇到的错误总结" class="headerlink" title="Xcode工程在编译时遇到的错误总结"></a>Xcode工程在编译时遇到的错误总结</h1><p>上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。<br>详情请看<a href="">Unity3d导出Xcode工程问题总结</a><br>这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。<br><a id="more"></a></p>
+        <p>上一遍文章中已经介绍了，用Unity3d生成Xcode工程时遇到的错误。<br>详情请看<a href="">Unity3d导出Xcode工程问题总结</a><br>这篇文章介绍当编译Unity3d生成的Xcode工程的时候，遇到的问题。<br><a id="more"></a></p>
 <h2 id="Unknown-type-name-‘-declspec’"><a href="#Unknown-type-name-‘-declspec’" class="headerlink" title="Unknown type name ‘__declspec’"></a>Unknown type name ‘__declspec’</h2><ul>
 <li>问题描述<br>Unknown type name ‘__declspec’</li>
 <li>原因分析<br>不知道啥原因。可以认为是Unity的bug。<br>Unity5.2.4使用修改unity源文件的方法不能生效，最后升级Unity版本到5.3.4即解决。</li>
@@ -315,13 +355,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/10/IOS打包问题3——Xcode工程报错/"></a></p>
+        <p><span>本文标题:</span><a href="/2016/04/04/IOS打包问题3——Xcode工程报错/">Xcode工程在编译时遇到的错误总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 青春代码 的个人博客">青春代码</a></p>
-        <p><span>发布时间:</span>2016年04月10日 - 13时16分</p>
-        <p><span>最后更新:</span>2016年04月10日 - 13时37分</p>
+        <p><span>发布时间:</span>2016年04月04日 - 00时12分</p>
+        <p><span>最后更新:</span>2016年04月10日 - 20时26分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/10/IOS打包问题3——Xcode工程报错/" title="">http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/　　作者: 青春代码" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/04/IOS打包问题3——Xcode工程报错/" title="Xcode工程在编译时遇到的错误总结">http://zh19900207.github.io/2016/04/04/IOS打包问题3——Xcode工程报错/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zh19900207.github.io/2016/04/04/IOS打包问题3——Xcode工程报错/　　作者: 青春代码" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -334,12 +374,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/">
-                    
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/30/IOS打包问题2——unity编译Xcode工程/">
+                    Unity3d导出Xcode工程问题总结
                 </a>
             </div>
-        
         
     </nav>
 
@@ -348,7 +388,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Xcode工程在编译时遇到的错误总结"><span class="toc-number">1.</span> <span class="toc-text">Xcode工程在编译时遇到的错误总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unknown-type-name-‘-declspec’"><span class="toc-number">1.1.</span> <span class="toc-text">Unknown type name ‘__declspec’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-kSecReturnData”"><span class="toc-number">1.2.</span> <span class="toc-text">“_kSecReturnData”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-deflate”"><span class="toc-number">1.3.</span> <span class="toc-text">“_deflate”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJCCLASS-ASIdentifierManager”"><span class="toc-number">1.4.</span> <span class="toc-text">“_OBJCCLASS$_ASIdentifierManager”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJC-CLASS-CTTelephonyNetworkInfo”"><span class="toc-number">1.5.</span> <span class="toc-text">“_OBJC_CLASS_$_CTTelephonyNetworkInfo”</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unknown-type-name-‘-declspec’"><span class="toc-number">1.</span> <span class="toc-text">Unknown type name ‘__declspec’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-kSecReturnData”"><span class="toc-number">2.</span> <span class="toc-text">“_kSecReturnData”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-deflate”"><span class="toc-number">3.</span> <span class="toc-text">“_deflate”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJCCLASS-ASIdentifierManager”"><span class="toc-number">4.</span> <span class="toc-text">“_OBJCCLASS$_ASIdentifierManager”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-OBJC-CLASS-CTTelephonyNetworkInfo”"><span class="toc-number">5.</span> <span class="toc-text">“_OBJC_CLASS_$_CTTelephonyNetworkInfo”</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -410,7 +450,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/10/IOS打包问题3——Xcode工程报错/" data-title="" data-url="http://zh19900207.github.io/2016/04/10/IOS打包问题3——Xcode工程报错/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/04/IOS打包问题3——Xcode工程报错/" data-title="Xcode工程在编译时遇到的错误总结" data-url="http://zh19900207.github.io/2016/04/04/IOS打包问题3——Xcode工程报错/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -418,7 +458,8 @@
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.src = 'http://zh19900207.github.io/js/embed.js';
+        /*ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';*/
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0] 
          || document.getElementsByTagName('body')[0]).appendChild(ds);
@@ -434,19 +475,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/03/30/IOS打包问题2——unity编译Xcode工程/" title="下一篇: Unity3d导出Xcode工程问题总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题2——unity编译Xcode工程/">IOS打包问题2——unity编译Xcode工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/IOS打包问题3——Xcode工程报错/">IOS打包问题3——Xcode工程报错</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/IOS打包问题3——Xcode工程报错/">Xcode工程在编译时遇到的错误总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/IOS打包问题2——unity编译Xcode工程/">Unity3d导出Xcode工程问题总结</a></li></ul>
 
 
 
